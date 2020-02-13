@@ -2,7 +2,7 @@
  * functionstocomplete.cpp
  *
  *  Created on: Sep 10, 2017
- *      Author: keith
+ *      Author: Adam Fehr
  */
 
 //============================================================================
@@ -40,6 +40,7 @@ void clearArray(){
 int getArraySize(){
 	return (sizeof(fileEntries)/sizeof(*fileEntries));
 }
+
 std::string getArrayWordAt(int i){
 	return fileEntries[i].word;
 }
@@ -65,7 +66,7 @@ bool processFile(std::fstream &myfstream){
 bool openFile(std::fstream& myfile, const string& myFileName,
 		std::ios_base::openmode mode){
 
-	myfile.open(myFileName.c_str());
+	myfile.open(myFileName.c_str(), ios::in);
 
 	if(myfile.is_open()){
 		return true;
@@ -83,10 +84,7 @@ void processToken(std::string &token){
 
 }
 
-//bool openFile(std::fstream& myfile, const std::string& myFileName,
-//		std::ios_base::openmode mode = std::ios_base::in){
-//	return false;
-//}
+
 
 void closeFile(std::fstream& myfile){
 	myfile.close();
